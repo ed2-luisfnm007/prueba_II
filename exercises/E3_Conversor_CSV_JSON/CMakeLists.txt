@@ -1,0 +1,10 @@
+add_executable(e3_main src/main.cpp src/solution.cpp)
+target_link_libraries(e3_main PRIVATE fast_cpp_csv_parser Threads::Threads nlohmann_json::nlohmann_json)
+target_include_directories(e3_main PRIVATE src)
+target_compile_definitions(e3_main PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
+add_executable(e3_test tests/test_e3.cpp src/solution.cpp)
+target_link_libraries(e3_test PRIVATE fast_cpp_csv_parser Threads::Threads nlohmann_json::nlohmann_json doctest)
+target_include_directories(e3_test PRIVATE src)
+target_compile_definitions(e3_test PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_test(NAME e3_test COMMAND e3_test)

@@ -1,0 +1,10 @@
+add_executable(e2_main src/main.cpp src/solution.cpp)
+target_link_libraries(e2_main PRIVATE nlohmann_json::nlohmann_json)
+target_include_directories(e2_main PRIVATE src)
+target_compile_definitions(e2_main PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
+add_executable(e2_test tests/test_e2.cpp src/solution.cpp)
+target_link_libraries(e2_test PRIVATE nlohmann_json::nlohmann_json doctest)
+target_include_directories(e2_test PRIVATE src)
+target_compile_definitions(e2_test PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_test(NAME e2_test COMMAND e2_test)

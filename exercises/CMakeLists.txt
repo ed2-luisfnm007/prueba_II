@@ -1,0 +1,3 @@
+add_subdirectory(E1_Inventario_Gamer)
+add_subdirectory(E2_Bitacora_Bancaria_NDJSON)
+add_subdirectory(E3_Conversor_CSV_JSON)

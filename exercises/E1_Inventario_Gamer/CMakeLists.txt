@@ -1,0 +1,10 @@
+add_executable(e1_main src/main.cpp src/solution.cpp)
+target_link_libraries(e1_main PRIVATE fast_cpp_csv_parser Threads::Threads)
+target_include_directories(e1_main PRIVATE src)
+target_compile_definitions(e1_main PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
+add_executable(e1_test tests/test_e1.cpp src/solution.cpp)
+target_link_libraries(e1_test PRIVATE fast_cpp_csv_parser Threads::Threads doctest)
+target_include_directories(e1_test PRIVATE src)
+target_compile_definitions(e1_test PRIVATE DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_test(NAME e1_test COMMAND e1_test)
